@@ -1,8 +1,14 @@
 package readability;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+@Getter
+@ToString
+@EqualsAndHashCode
 public class TextStatistic {
 
     private int numOfWords;
@@ -33,19 +39,12 @@ public class TextStatistic {
                 numOfPolysyllables);
     }
 
-    public int getNumOfWords() {
-        return numOfWords;
-    }
 
     private void setWords() {
         if (text.length() == 0) {
             return;
         }
         this.numOfWords = text.split("\\s+").length;
-    }
-
-    public int getNumOfSentences() {
-        return numOfSentences;
     }
 
     private void setSentences() {
@@ -55,23 +54,11 @@ public class TextStatistic {
         this.numOfSentences = text.split("\\.|\\?|!").length;
     }
 
-    public int getNumOfCharacters() {
-        return numOfCharacters;
-    }
-
     private void setCharacters() {
         if (text.length() == 0) {
             return;
         }
         this.numOfCharacters = text.replaceAll("\\s+", "").toCharArray().length;
-    }
-
-    public int getNumOfSyllables() {
-        return numOfSyllables;
-    }
-
-    public int getNumOfPolysyllables() {
-        return numOfPolysyllables;
     }
 
     private void setSyllablesAndPolysyllables() {
