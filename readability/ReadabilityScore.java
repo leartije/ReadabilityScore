@@ -1,8 +1,10 @@
 package readability;
 
 public interface ReadabilityScore {
-
-    double calculate();
-    void execute();
+    void calculateScore();
+    void printResults();
+    default int intScore(double score) {
+        return (int) Math.ceil(score);
+    }
 
 }
