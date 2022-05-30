@@ -13,6 +13,10 @@ public class Main {
     public static void main(String[] args) {
 
         String file = getFileName(args);
+        if (file == null) {
+            System.out.println("File not found");
+            return;
+        }
         String text = getText(file);
         if (!Objects.equals(text, EMPTY)) {
 
@@ -23,10 +27,7 @@ public class Main {
             start.startProgram(textStatistic);
             return;
         }
-
         System.out.println("File is empty");
-
-
     }
 
     private static String getFileName(String[] args) {
